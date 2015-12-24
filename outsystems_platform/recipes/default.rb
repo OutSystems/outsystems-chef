@@ -73,16 +73,11 @@ bash 'inotify fix' do
 end
 
 # this does the same as installing the outsystems-repo package
-file '/etc/yum.repos.d/outsystems.repo' do
-	content <<-EOH
-[outsystems]
-name=OutSystems
-baseurl=http://yum.outsystems.net/9.1/noarch
-enabled=1
-gpgcheck=1
-gpgkey=http://yum.outsystems.net/9.1/noarch/OUTSYSTEMS-RPM-GPG-KEY-SUPPORT
-	EOH
-	action :create
+template '/etc/yum.repos.d/outsystems.repo' do
+	source 'outsystems.repo.erb'
+	variables({
+		:major_version => '9.1'
+	})
 end
 
 package [ 'outsystems-agileplatform-wildfly8', 'outsystems-agileplatform', 'outsystems-agileplatform-libs' ]
@@ -90,6 +85,7 @@ package [ 'outsystems-agileplatform-wildfly8', 'outsystems-agileplatform', 'outs
 remote_file '/opt/outsystems/platform/jce_policy-8.zip' do
 	source 'https://outsystemssupport.s3.amazonaws.com/public/chef/jce_policy-8.zip'
 	action :create
+	checksum 'f3020a3922efd6626c2fff45695d527f34a8020e938a49292561f18ad1320b59'
 end
 
 template '/etc/outsystems/server.hsconf' do

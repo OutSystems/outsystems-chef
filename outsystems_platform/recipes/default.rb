@@ -8,19 +8,19 @@
 package [ 'bash', 'openssh-clients', 'iptables', 'zip', 'unzip', 'dos2unix', 'patch' ]
 
 remote_file '/tmp/apache-ant-1.9.6-bin.zip' do 
-	source 'http://mirrors.fe.up.pt/pub/apache/ant/binaries/apache-ant-1.9.6-bin.zip'
+	source 'https://outsystemssupport.s3.amazonaws.com/public/chef/apache-ant-1.9.6-bin.zip'
 	action :create
 	not_if { ::File.directory?('/opt/apache-ant-1.9.6/')}
 end
 
 remote_file '/tmp/wildfly-8.2.0.Final.zip' do
-	source 'http://download.jboss.org/wildfly/8.2.0.Final/wildfly-8.2.0.Final.zip'
+	source 'https://outsystemssupport.s3.amazonaws.com/public/chef/wildfly-8.2.0.Final.zip'
 	action :create
 	not_if { ::File.directory?('/opt/wildfly-8.2.0.Final/') } 
 end
 
 remote_file '/tmp/jdk-8u66-linux-x64.rpm' do 
-	source 'file:///media/sf_VBoxShare/jdk-8u66-linux-x64.rpm'
+	source 'https://outsystemssupport.s3.amazonaws.com/public/chef/jdk-8u66-linux-x64.rpm'
 	action :create
 	not_if "rpm -q jdk1.8.0_66"
 end
@@ -84,7 +84,7 @@ end
 package [ 'outsystems-agileplatform-wildfly8', 'outsystems-agileplatform', 'outsystems-agileplatform-libs' ]
 
 remote_file '/opt/outsystems/platform/jce_policy-8.zip' do
-	source 'file:///media/sf_VBoxShare/jce_policy-8.zip'
+	source 'https://outsystemssupport.s3.amazonaws.com/public/chef/jce_policy-8.zip'
 	action :create
 end
 

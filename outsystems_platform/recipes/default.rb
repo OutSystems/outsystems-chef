@@ -7,6 +7,10 @@
 
 package [ 'bash', 'openssh-clients', 'iptables', 'zip', 'unzip', 'dos2unix', 'patch' ]
 
+service 'iptables' do
+	action [ :enable, :start ]
+end
+
 remote_file '/tmp/apache-ant-1.9.6-bin.zip' do 
 	source 'https://outsystemssupport.s3.amazonaws.com/public/chef/apache-ant-1.9.6-bin.zip'
 	action :create

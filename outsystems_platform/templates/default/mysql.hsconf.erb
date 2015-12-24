@@ -1,0 +1,69 @@
+<EnvironmentConfiguration>
+  <PlatformDatabaseConfiguration ProviderKey="MySQL">
+    <Server encrypted="false"><%= @outsystems_platform.database.server %></Server>
+    <Schema encrypted="false"><%= @outsystems_platform.database.database %></Schema>
+
+    <AdminUser encrypted="false"><%= @outsystems_platform.database.admin_user %></AdminUser>
+    <RuntimeUser encrypted="false"><%= @outsystems_platform.database.runtime_user %></RuntimeUser>
+    <LogUser encrypted="false"><%= @outsystems_platform.database.log_user %></LogUser>
+
+    <AdminPassword encrypted="false"><%= @outsystems_platform.database.admin_password %></AdminPassword>
+    <RuntimePassword encrypted="false"><%= @outsystems_platform.database.runtime_password %></RuntimePassword>
+    <LogPassword encrypted="false"><%= @outsystems_platform.database.log_password %></LogPassword>
+
+    <AdvancedConfigurationMode encrypted="false">false</AdvancedConfigurationMode>
+    <RuntimeAdvancedSettings encrypted="false"></RuntimeAdvancedSettings>
+    <ServicesAdvancedSettings encrypted="false"></ServicesAdvancedSettings>
+  </PlatformDatabaseConfiguration>
+  <SessionDatabaseConfiguration ProviderKey="MySQL">
+    <Server encrypted="false"><%= @outsystems_platform.session_database.server %></Server>
+    <Schema encrypted="false"><%= @outsystems_platform.session_database.database %></Schema>
+
+    <SessionUser encrypted="false"><%= @outsystems_platform.session_database.session_user %></SessionUser>
+    <SessionPassword encrypted="true"><%= @outsystems_platform.session_database.session_password %></SessionPassword>
+
+    <SessionAdvancedSettings encrypted="false"></SessionAdvancedSettings>
+    <UsedAuthenticationMode encrypted="false"></UsedAuthenticationMode>
+    <AdvancedConfigurationMode encrypted="false">false</AdvancedConfigurationMode>
+  </SessionDatabaseConfiguration>
+  <ServiceConfiguration>
+    <CompilerServerHostname><%= @outsystems_platform.compiler_hostname %></CompilerServerHostname>
+
+    <CompilerServerPort>12000</CompilerServerPort>
+    <DeploymentServerPort>12001</DeploymentServerPort>
+    <JDBCPoolInactivityTimeout>300</JDBCPoolInactivityTimeout>
+    <JDBCPoolMaxPoolSize>100</JDBCPoolMaxPoolSize>
+    <JDBCPoolMinPoolSize>10</JDBCPoolMinPoolSize>
+    <LogQueuePath>queue/OutSystemsLog</LogQueuePath>
+    <LogServerPort>12003</LogServerPort>
+    <RMIRegistryPort>2033</RMIRegistryPort>
+    <SchedulerServerPort>12002</SchedulerServerPort>
+    <SupportAsynchronousLog>true</SupportAsynchronousLog>
+  </ServiceConfiguration>
+  <ServerConfiguration>
+    <ApplicationServerPort>80</ApplicationServerPort>
+    <ApplicationServerSecurePort>443</ApplicationServerSecurePort>
+    <MaxConcurrentTimers>3</MaxConcurrentTimers>
+    <WeeksToKeep>4</WeeksToKeep>
+  </ServerConfiguration>
+  <NetworkConfiguration>
+    <ApplicationServerVersion>(Unknown version)</ApplicationServerVersion>
+    <FrontendIpAddress></FrontendIpAddress>
+    <InternalNetworkIPs></InternalNetworkIPs>
+    <OutgoingIPAddress></OutgoingIPAddress>
+    <RequiresSoapHeadersSlowRetrieval>false</RequiresSoapHeadersSlowRetrieval>
+    <ServerKind>JBoss</ServerKind>
+  </NetworkConfiguration>
+  <OtherConfigurations>
+    <DBIntrospectionTimeout>90</DBIntrospectionTimeout>
+    <DBTimeout>30</DBTimeout>
+    <DBUpdateTimeout>600</DBUpdateTimeout>
+    <InstallationDir>/opt/outsystems/platform</InstallationDir>
+    <InstanceName>DEFAULT</InstanceName>
+    <PlatformVersion>9.1.0.8</PlatformVersion>
+    <QueuesAvailable>false</QueuesAvailable>
+  </OtherConfigurations>
+  <ExtensionPointConfigurations>
+    <OutSystems.Wildfly.DeployDir></OutSystems.Wildfly.DeployDir>
+  </ExtensionPointConfigurations>
+</EnvironmentConfiguration>

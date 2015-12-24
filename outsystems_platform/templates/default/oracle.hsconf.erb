@@ -1,0 +1,81 @@
+<EnvironmentConfiguration>
+  <PlatformDatabaseConfiguration ProviderKey="Oracle">
+    <AdminTablespace encrypted="false">OSSYS</AdminTablespace>
+    <ServicesAdvancedSettings encrypted="false"></ServicesAdvancedSettings>
+    <AdminPassword encrypted="true">$2$wel3ymN4q7vRdrF6GpwyFg==4foffcbjQsaBNuKEtZGwTQ==</AdminPassword>
+    <IntrospectionMethod encrypted="false">auto</IntrospectionMethod>
+    <ServiceName encrypted="false"></ServiceName>
+    <LogTablespace encrypted="false">OSLOG</LogTablespace>
+    <CI_AI encrypted="false">true</CI_AI>
+    <RuntimePassword encrypted="true">$2$rfDdkkHLxUD2orpBxlbHwQ==FH0HCmNY1qIZrTHRlIOMsQ==</RuntimePassword>
+    <NLS_Territory encrypted="false">AMERICA</NLS_Territory>
+    <LogUser encrypted="false">OSLOG</LogUser>
+    <DateFunction encrypted="false">CURRENT_TIMESTAMP</DateFunction>
+    <Port encrypted="false">1521</Port>
+    <AdvancedConfigurationMode encrypted="false">false</AdvancedConfigurationMode>
+    <NLS_Language encrypted="false"></NLS_Language>
+    <IndexTablespace encrypted="false">OSIDX</IndexTablespace>
+    <RuntimeAdvancedSettings encrypted="false"></RuntimeAdvancedSettings>
+    <RuntimeUser encrypted="false">OSRUNTIME</RuntimeUser>
+    <RuntimeTablespace encrypted="false">OSUSR</RuntimeTablespace>
+    <Host encrypted="false">localhost</Host>
+    <DDLLockTimeout encrypted="false">0</DDLLockTimeout>
+    <AdminUser encrypted="false">OSADMIN</AdminUser>
+    <LogPassword encrypted="true">$2$lpf12VVb3Dh9wK98aD6BaQ==GSbiutpsNG6uonAwofnnbQ==</LogPassword>
+  </PlatformDatabaseConfiguration>
+  <SessionDatabaseConfiguration ProviderKey="Oracle">
+    <IntrospectionMethod encrypted="false"></IntrospectionMethod>
+    <ServiceName encrypted="false"></ServiceName>
+    <SessionAdvancedSettings encrypted="false"></SessionAdvancedSettings>
+    <CI_AI encrypted="false">false</CI_AI>
+    <SessionTablespace encrypted="false">OSSTATE</SessionTablespace>
+    <NLS_Territory encrypted="false">AMERICA</NLS_Territory>
+    <DateFunction encrypted="false"></DateFunction>
+    <Port encrypted="false">1521</Port>
+    <AdvancedConfigurationMode encrypted="false">false</AdvancedConfigurationMode>
+    <SessionUser encrypted="false">OSSTATE</SessionUser>
+    <NLS_Language encrypted="false"></NLS_Language>
+    <SessionPassword encrypted="true">$2$AFPZpXcalKIlXo5/ljFy4A==tV8JcBGqtqt0XUW1P7cxbw==</SessionPassword>
+    <Host encrypted="false">localhost</Host>
+    <DDLLockTimeout encrypted="false">0</DDLLockTimeout>
+  </SessionDatabaseConfiguration>
+  <ServiceConfiguration>
+    <CompilerServerHostname>localhost</CompilerServerHostname>
+    <CompilerServerPort>12000</CompilerServerPort>
+    <DeploymentServerPort>12001</DeploymentServerPort>
+    <JDBCPoolInactivityTimeout>300</JDBCPoolInactivityTimeout>
+    <JDBCPoolMaxPoolSize>100</JDBCPoolMaxPoolSize>
+    <JDBCPoolMinPoolSize>10</JDBCPoolMinPoolSize>
+    <LogQueuePath>queue/OutSystemsLog</LogQueuePath>
+    <LogServerPort>12003</LogServerPort>
+    <RMIRegistryPort>2033</RMIRegistryPort>
+    <SchedulerServerPort>12002</SchedulerServerPort>
+    <SupportAsynchronousLog>true</SupportAsynchronousLog>
+  </ServiceConfiguration>
+  <ServerConfiguration>
+    <ApplicationServerPort>80</ApplicationServerPort>
+    <ApplicationServerSecurePort>443</ApplicationServerSecurePort>
+    <MaxConcurrentTimers>3</MaxConcurrentTimers>
+    <WeeksToKeep>4</WeeksToKeep>
+  </ServerConfiguration>
+  <NetworkConfiguration>
+    <ApplicationServerVersion>(Unknown version)</ApplicationServerVersion>
+    <FrontendIpAddress></FrontendIpAddress>
+    <InternalNetworkIPs></InternalNetworkIPs>
+    <OutgoingIPAddress></OutgoingIPAddress>
+    <RequiresSoapHeadersSlowRetrieval>false</RequiresSoapHeadersSlowRetrieval>
+    <ServerKind>JBoss</ServerKind>
+  </NetworkConfiguration>
+  <OtherConfigurations>
+    <DBIntrospectionTimeout>90</DBIntrospectionTimeout>
+    <DBTimeout>30</DBTimeout>
+    <DBUpdateTimeout>600</DBUpdateTimeout>
+    <InstallationDir>/opt/outsystems/platform</InstallationDir>
+    <InstanceName>DEFAULT</InstanceName>
+    <PlatformVersion>9.1.0.8</PlatformVersion>
+    <QueuesAvailable>false</QueuesAvailable>
+  </OtherConfigurations>
+  <ExtensionPointConfigurations>
+    <OutSystems.Wildfly.DeployDir></OutSystems.Wildfly.DeployDir>
+  </ExtensionPointConfigurations>
+</EnvironmentConfiguration>

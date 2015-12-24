@@ -1,0 +1,14 @@
+{
+  "outsystems_platform": {
+     "database": {
+        "server": "localhost",
+        "admin_password": "ha",
+        "runtime_password": "hr",
+        "log_password": "hl"
+     },
+     "session_database": {
+        "server": "localhost",
+        "session_password": "hs"
+     }
+  }
+}

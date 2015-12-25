@@ -95,3 +95,9 @@ template '/etc/outsystems/server.hsconf' do
 	})
 end
 
+bash 'run configuration tool' do
+	code <<-EOH
+	/opt/outsystems/platform/configurationtool.sh /silent /setupinstall /scinstall
+	EOH
+end
+

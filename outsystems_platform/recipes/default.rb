@@ -7,7 +7,7 @@
 
 include_recipe 'outsystems_platform::prerequisites'
 
-if platform?('linux')  
+if platform?('centos')  
 
 	# this does the same as installing the outsystems-repo package
 	template '/etc/yum.repos.d/outsystems.repo' do

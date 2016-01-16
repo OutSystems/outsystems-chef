@@ -1,44 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <EnvironmentConfiguration>
-  <PlatformDatabaseConfiguration ProviderKey="MySQL">
+  <PlatformDatabaseConfiguration ProviderKey="SqlServer">
+
+
     <Server encrypted="false"><%= @outsystems_platform.database.server %></Server>
-    <Schema encrypted="false"><%= @outsystems_platform.database.database %></Schema>
+    <Catalog encrypted="false"><%= @outsystems_platform.database.database %></Catalog>
+
 
     <AdminUser encrypted="false"><%= @outsystems_platform.database.admin_user %></AdminUser>
     <RuntimeUser encrypted="false"><%= @outsystems_platform.database.runtime_user %></RuntimeUser>
     <LogUser encrypted="false"><%= @outsystems_platform.database.log_user %></LogUser>
 
+    <UsedAuthenticationMode encrypted="false">Database Authentication</UsedAuthenticationMode>
+
     <AdminPassword encrypted="false"><%= @outsystems_platform.database.admin_password %></AdminPassword>
     <RuntimePassword encrypted="false"><%= @outsystems_platform.database.runtime_password %></RuntimePassword>
     <LogPassword encrypted="false"><%= @outsystems_platform.database.log_password %></LogPassword>
 
-    <AdvancedConfigurationMode encrypted="false">false</AdvancedConfigurationMode>
+
+    <Unicode encrypted="false">true</Unicode>
     <RuntimeAdvancedSettings encrypted="false"></RuntimeAdvancedSettings>
     <ServicesAdvancedSettings encrypted="false"></ServicesAdvancedSettings>
+    <AdvancedConfigurationMode encrypted="false">false</AdvancedConfigurationMode>
   </PlatformDatabaseConfiguration>
-  <SessionDatabaseConfiguration ProviderKey="MySQL">
+  <SessionDatabaseConfiguration ProviderKey="SqlServer">
+
     <Server encrypted="false"><%= @outsystems_platform.session_database.server %></Server>
-    <Schema encrypted="false"><%= @outsystems_platform.session_database.database %></Schema>
+    <Catalog encrypted="false"><%= @outsystems_platform.session_database.database %></Catalog>
 
     <SessionUser encrypted="false"><%= @outsystems_platform.session_database.session_user %></SessionUser>
+
     <SessionPassword encrypted="false"><%= @outsystems_platform.session_database.session_password %></SessionPassword>
 
+    <UsedAuthenticationMode encrypted="false">Database Authentication</UsedAuthenticationMode>
+
     <SessionAdvancedSettings encrypted="false"></SessionAdvancedSettings>
-    <UsedAuthenticationMode encrypted="false"></UsedAuthenticationMode>
     <AdvancedConfigurationMode encrypted="false">false</AdvancedConfigurationMode>
+    <DeleteExpiredSessionsAvoidLockRowCount encrypted="false">100</DeleteExpiredSessionsAvoidLockRowCount>
   </SessionDatabaseConfiguration>
   <ServiceConfiguration>
     <CompilerServerHostname><%= @outsystems_platform.compiler_hostname %></CompilerServerHostname>
-
     <CompilerServerPort>12000</CompilerServerPort>
     <DeploymentServerPort>12001</DeploymentServerPort>
-    <JDBCPoolInactivityTimeout>300</JDBCPoolInactivityTimeout>
-    <JDBCPoolMaxPoolSize>100</JDBCPoolMaxPoolSize>
-    <JDBCPoolMinPoolSize>10</JDBCPoolMinPoolSize>
-    <LogQueuePath>queue/OutSystemsLog</LogQueuePath>
+    <LogQueuePath>.\Private$\OutSystemsLog</LogQueuePath>
     <LogServerPort>12003</LogServerPort>
     <RMIRegistryPort>2033</RMIRegistryPort>
     <SchedulerServerPort>12002</SchedulerServerPort>
-    <SupportAsynchronousLog>true</SupportAsynchronousLog>
+    <SupportAsynchronousLog>True</SupportAsynchronousLog>
   </ServiceConfiguration>
   <ServerConfiguration>
     <ApplicationServerPort>80</ApplicationServerPort>
@@ -46,24 +54,43 @@
     <MaxConcurrentTimers>3</MaxConcurrentTimers>
     <WeeksToKeep>4</WeeksToKeep>
   </ServerConfiguration>
+  <KannelConfiguration>
+    <KannelHost>127.0.0.1</KannelHost>
+    <KannelPassword>$2$eCyB+BDhyyVqQv9OrbI/HQ==Xn/oda6P+XV1ZyTf0yiTow==</KannelPassword>
+    <KannelPort>13013</KannelPort>
+    <KannelStatusPassword>$2$W84DcnYEa6Z5xDyZDeLumA==2vcpWSAk2FecgZyflEh8FQ==</KannelStatusPassword>
+    <KannelStatusPort>13000</KannelStatusPort>
+    <KannelUsername>hubserver</KannelUsername>
+    <KannelVersion>1.2</KannelVersion>
+    <MaxBulkSms>500</MaxBulkSms>
+    <UnifiedPrefix>+351</UnifiedPrefix>
+  </KannelConfiguration>
+  <SMSConfiguration>
+    <SMSCInboundFailedQueue>.\Private$\InboundFailedQueue</SMSCInboundFailedQueue>
+    <SMSCInboundQueue>.\Private$\InboundQueue</SMSCInboundQueue>
+    <SMSCInboundThreads>5</SMSCInboundThreads>
+    <SMSConnectorPort>12004</SMSConnectorPort>
+    <SMSCOutboundFailedQueue>.\Private$\OutboundFailedQueue</SMSCOutboundFailedQueue>
+    <SMSCOutboundQueue>.\Private$\OutboundQueue</SMSCOutboundQueue>
+    <SMSCOutboundThreads>10</SMSCOutboundThreads>
+    <SMSCTriesBeforeQuiting>15</SMSCTriesBeforeQuiting>
+  </SMSConfiguration>
   <NetworkConfiguration>
     <ApplicationServerVersion>(Unknown version)</ApplicationServerVersion>
     <FrontendIpAddress></FrontendIpAddress>
     <InternalNetworkIPs></InternalNetworkIPs>
     <OutgoingIPAddress></OutgoingIPAddress>
-    <RequiresSoapHeadersSlowRetrieval>false</RequiresSoapHeadersSlowRetrieval>
-    <ServerKind>JBoss</ServerKind>
+    <RequiresSoapHeadersSlowRetrieval>False</RequiresSoapHeadersSlowRetrieval>
+    <ServerKind>IIS</ServerKind>
   </NetworkConfiguration>
   <OtherConfigurations>
     <DBIntrospectionTimeout>90</DBIntrospectionTimeout>
     <DBTimeout>30</DBTimeout>
     <DBUpdateTimeout>600</DBUpdateTimeout>
-    <InstallationDir>/opt/outsystems/platform</InstallationDir>
+    <InstallationDir>C:\Program Files\OutSystems\Platform Server\</InstallationDir>
     <InstanceName>DEFAULT</InstanceName>
-    <PlatformVersion>9.1.0.8</PlatformVersion>
-    <QueuesAvailable>false</QueuesAvailable>
+    <PlatformVersion>9.1.0.20</PlatformVersion>
+    <QueuesAvailable>False</QueuesAvailable>
   </OtherConfigurations>
-  <ExtensionPointConfigurations>
-    <OutSystems.Wildfly.DeployDir></OutSystems.Wildfly.DeployDir>
-  </ExtensionPointConfigurations>
+  <ExtensionPointConfigurations />
 </EnvironmentConfiguration>

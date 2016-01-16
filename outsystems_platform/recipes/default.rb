@@ -40,6 +40,27 @@ if platform?('centos')
 
 elsif platform?('windows')
 
-# do stuff
+	windows_package 'OutSystems Development Environment 9.1' do
+		source 'https://outsystemssupport.s3.amazonaws.com/public/chef/DevelopmentEnvironment.exe'
+		package_name 'OutSystems Development Environment 9.1'
+		options '/S'
+		action :install
+	end
+
+	windows_package 'OutSystems Platform Server' do
+		source 'https://outsystemssupport.s3.amazonaws.com/public/chef/PlatformServer.exe'
+		package_name 'OutSystems Platform Server'
+		installer_type :custom
+		options '/S'
+		action :install
+	end
+
+	template 'C:\Program Files\OutSystems\Platform Server\server.hsconf' do
+		source 'sqlserver.hsconf.erb'
+		variables({
+			:outsystems_platform => node['outsystems_platform']
+		})
+	end
+
 
 end

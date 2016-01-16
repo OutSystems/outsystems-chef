@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnvironmentConfiguration>
+  <PlatformDatabaseConfiguration ProviderKey="MySQL">
+    <Server encrypted="false"></Server>
+    <Schema encrypted="false"></Schema>
+    <AdminUser encrypted="false">OSADMIN</AdminUser>
+    <AdminPassword encrypted="true"></AdminPassword>
+    <RuntimeUser encrypted="false">OSRUNTIME</RuntimeUser>
+    <RuntimePassword encrypted="true"></RuntimePassword>
+    <LogUser encrypted="false">OSLOG</LogUser>
+    <LogPassword encrypted="true"></LogPassword>
+    <RuntimeAdvancedSettings encrypted="false"></RuntimeAdvancedSettings>
+    <ServicesAdvancedSettings encrypted="false"></ServicesAdvancedSettings>
+    <AdvancedConfigurationMode encrypted="false">false</AdvancedConfigurationMode>
+  </PlatformDatabaseConfiguration>
+  <SessionDatabaseConfiguration ProviderKey="MySQL">
+    <Server encrypted="false"></Server>
+    <Schema encrypted="false"></Schema>
+    <UsedAuthenticationMode encrypted="false">Database Authentication</UsedAuthenticationMode>
+    <SessionUser encrypted="false">OSSTATE</SessionUser>
+    <SessionPassword encrypted="true"></SessionPassword>
+    <SessionAdvancedSettings encrypted="false"></SessionAdvancedSettings>
+    <AdvancedConfigurationMode encrypted="false">false</AdvancedConfigurationMode>
+  </SessionDatabaseConfiguration>
+  <ServiceConfiguration>
+    <CompilerServerHostname>localhost</CompilerServerHostname>
+    <CompilerServerPort>12000</CompilerServerPort>
+    <DeploymentServerPort>12001</DeploymentServerPort>
+    <LogQueuePath>.\Private$\OutSystemsLog</LogQueuePath>
+    <LogServerPort>12003</LogServerPort>
+    <RMIRegistryPort>2033</RMIRegistryPort>
+    <SchedulerServerPort>12002</SchedulerServerPort>
+    <SupportAsynchronousLog>True</SupportAsynchronousLog>
+  </ServiceConfiguration>
+  <ServerConfiguration>
+    <ApplicationServerPort>80</ApplicationServerPort>
+    <ApplicationServerSecurePort>443</ApplicationServerSecurePort>
+    <MaxConcurrentTimers>3</MaxConcurrentTimers>
+    <WeeksToKeep>4</WeeksToKeep>
+  </ServerConfiguration>
+  <KannelConfiguration>
+    <KannelHost>127.0.0.1</KannelHost>
+    <KannelPassword>$2$9YOEPSAj52lGgwrs98f67Q==5oki9p6LnsAV3x0hVW4KeQ==</KannelPassword>
+    <KannelPort>13013</KannelPort>
+    <KannelStatusPassword>$2$oJwEkqqFodeCj6ksCGC4GQ==hfCahNV3MgVutSqlZPUZ7Q==</KannelStatusPassword>
+    <KannelStatusPort>13000</KannelStatusPort>
+    <KannelUsername>hubserver</KannelUsername>
+    <KannelVersion>1.2</KannelVersion>
+    <MaxBulkSms>500</MaxBulkSms>
+    <UnifiedPrefix>+351</UnifiedPrefix>
+  </KannelConfiguration>
+  <SMSConfiguration>
+    <SMSCInboundFailedQueue>.\Private$\InboundFailedQueue</SMSCInboundFailedQueue>
+    <SMSCInboundQueue>.\Private$\InboundQueue</SMSCInboundQueue>
+    <SMSCInboundThreads>5</SMSCInboundThreads>
+    <SMSConnectorPort>12004</SMSConnectorPort>
+    <SMSCOutboundFailedQueue>.\Private$\OutboundFailedQueue</SMSCOutboundFailedQueue>
+    <SMSCOutboundQueue>.\Private$\OutboundQueue</SMSCOutboundQueue>
+    <SMSCOutboundThreads>10</SMSCOutboundThreads>
+    <SMSCTriesBeforeQuiting>15</SMSCTriesBeforeQuiting>
+  </SMSConfiguration>
+  <NetworkConfiguration>
+    <ApplicationServerVersion>(Unknown version)</ApplicationServerVersion>
+    <FrontendIpAddress></FrontendIpAddress>
+    <InternalNetworkIPs></InternalNetworkIPs>
+    <OutgoingIPAddress></OutgoingIPAddress>
+    <RequiresSoapHeadersSlowRetrieval>False</RequiresSoapHeadersSlowRetrieval>
+    <ServerKind>IIS</ServerKind>
+  </NetworkConfiguration>
+  <OtherConfigurations>
+    <DBIntrospectionTimeout>90</DBIntrospectionTimeout>
+    <DBTimeout>30</DBTimeout>
+    <DBUpdateTimeout>600</DBUpdateTimeout>
+    <InstallationDir>C:\Program Files\OutSystems\Platform Server\</InstallationDir>
+    <InstanceName>DEFAULT</InstanceName>
+    <PlatformVersion>9.1.0.20</PlatformVersion>
+    <QueuesAvailable>False</QueuesAvailable>
+  </OtherConfigurations>
+  <ExtensionPointConfigurations />
+</EnvironmentConfiguration>

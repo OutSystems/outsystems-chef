@@ -5,3 +5,6 @@ license 'all_rights'
 description 'Installs/Configures outsytems_platform'
 long_description 'Installs/Configures outsytems_platform'
 version '0.1.0'
+
+
+depends 'windows'

@@ -142,4 +142,32 @@ elsif platform?('windows')
 	end
 
 
+    registry_key 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\eventlog\Application' do
+      recursive true
+      values [
+        { name: 'MaxSize', type: :dword, data: 1_400_000 },
+        { name: 'Retention', type: :dword, data: 0 }
+      ]
+      action :create_if_missing
+    end
+
+    registry_key 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\eventlog\System' do
+      recursive true
+      values [
+        { name: 'MaxSize', type: :dword, data: 1_400_000 },
+        { name: 'Retention', type: :dword, data: 0 }
+      ]
+      action :create_if_missing
+    end
+
+    registry_key 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\eventlog\Security' do
+      recursive true
+      values [
+        { name: 'MaxSize', type: :dword, data: 1_400_000 },
+        { name: 'Retention', type: :dword, data: 0 }
+      ]
+      action :create_if_missing
+    end
+
+
 end

@@ -9,5 +9,4 @@ default['outsystems_platform']['database']['log_user'] = hostname + '_OSLOG'
 default['outsystems_platform']['session_database']['database'] =  hostname + '_SESSION'
 default['outsystems_platform']['session_database']['session_user'] = hostname + '_OSSTATE'
 
-default['outsystems_platform']['compiler_hostname'] = 'localhost'
-
+default['outsystems_platform']['compiler_hostname'] = hostname

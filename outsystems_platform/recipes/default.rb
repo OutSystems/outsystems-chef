@@ -38,6 +38,13 @@ if platform?('centos')
 		EOH
 	end
 
+	bash 'install system components' do
+		code <<-EOH
+		/opt/outsystems/platform/osptool.sh /opt/outsystems/platform/System_Components.osp localhost admin admin
+		EOH
+	end
+
+
 elsif platform?('windows')
 
 	windows_package 'OutSystems Development Environment 9.1' do
@@ -117,5 +124,9 @@ elsif platform?('windows')
 
 	# not very fond of unconditional IIS reset here, but not sure who should notify.
 	execute 'iisreset'
+
+	execute 'install system components' do 
+		command "\"C:\\Program Files\\Common Files\\OutSystems\\9.1\\OSPTool.exe\" \"C:\\Program Files\\OutSystems\\Platform Server\\System_Components.osp\" localhost admin admin"
+	end
 
 end

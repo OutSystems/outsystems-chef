@@ -25,7 +25,7 @@ if platform?('centos')
 		not_if { ::File.directory?('/opt/wildfly-8.2.0.Final/') } 
 	end
 
-	remote_file '/tmp/jdk-8u66-linux-x64.rpm' do 
+	remote_file '/tmp/jdk-8u72-linux-x64.rpm' do 
 		source 'https://outsystemssupport.s3.amazonaws.com/public/chef/jdk-8u72-linux-x64.rpm'
 		action :create
 		not_if "rpm -q jdk1.8.0_72"
@@ -47,7 +47,7 @@ if platform?('centos')
 	end 
 
 	package 'oracle java' do
-		source '/tmp/jdk-8u66-linux-x64.rpm'
+		source '/tmp/jdk-8u72-linux-x64.rpm'
 		action :install
 		not_if "rpm -q jdk1.8.0_72"
 	end

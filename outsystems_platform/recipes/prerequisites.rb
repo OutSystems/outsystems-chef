@@ -26,9 +26,9 @@ if platform?('centos')
 	end
 
 	remote_file '/tmp/jdk-8u66-linux-x64.rpm' do 
-		source 'https://outsystemssupport.s3.amazonaws.com/public/chef/jdk-8u66-linux-x64.rpm'
+		source 'https://outsystemssupport.s3.amazonaws.com/public/chef/jdk-8u72-linux-x64.rpm'
 		action :create
-		not_if "rpm -q jdk1.8.0_66"
+		not_if "rpm -q jdk1.8.0_72"
 	end
 
 
@@ -49,7 +49,7 @@ if platform?('centos')
 	package 'oracle java' do
 		source '/tmp/jdk-8u66-linux-x64.rpm'
 		action :install
-		not_if "rpm -q jdk1.8.0_66"
+		not_if "rpm -q jdk1.8.0_72"
 	end
 
 	# while there is no harm is executing this
@@ -57,10 +57,10 @@ if platform?('centos')
 	# is there a chef package to manage this ?
 	bash 'java alternatives' do
 		code <<-EOH
-		alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_66/bin/java 16999
-		alternatives --install /usr/java/java-1.8.0 java_sdk_1.8.0 /usr/java/jdk1.8.0_66/ 16999
-		alternatives --set java /usr/java/jdk1.8.0_66/bin/java
-		alternatives --set java_sdk_1.8.0 /usr/java/jdk1.8.0_66/
+		alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_72/bin/java 16999
+		alternatives --install /usr/java/java-1.8.0 java_sdk_1.8.0 /usr/java/jdk1.8.0_72/ 16999
+		alternatives --set java /usr/java/jdk1.8.0_72/bin/java
+		alternatives --set java_sdk_1.8.0 /usr/java/jdk1.8.0_72/
 		EOH
 	end
 
@@ -68,8 +68,10 @@ if platform?('centos')
 	bash 'inotify fix' do
 		code <<-EOH
 		echo 2048 > /proc/sys/fs/inotify/max_user_instances
+		echo 524288 > /proc/sys/fs/inotify/max_user_watches
 		echo '# OUTSYSTEMS ' >> /etc/sysctl.conf
 		echo fs.inotify.max_user_instances=2048 >> /etc/sysctl.conf
+		echo fs.inotify.max_user_watches=524288 >> /etc/sysctl.conf
 		EOH
 		not_if "grep OUTSYSTEMS /etc/sysctl.conf"
 	end

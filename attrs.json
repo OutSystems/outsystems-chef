@@ -1,6 +1,7 @@
 {
   "outsystems_platform": {
      "database": {
+        "kind": "mysql",
         "server": "localhost",
         "admin_password": "ha",
         "runtime_password": "hr",

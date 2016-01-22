@@ -1,29 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EnvironmentConfiguration>
   <PlatformDatabaseConfiguration ProviderKey="MySQL">
-    <Server encrypted="false"></Server>
-    <Schema encrypted="false"></Schema>
-    <AdminUser encrypted="false">OSADMIN</AdminUser>
-    <AdminPassword encrypted="true"></AdminPassword>
-    <RuntimeUser encrypted="false">OSRUNTIME</RuntimeUser>
-    <RuntimePassword encrypted="true"></RuntimePassword>
-    <LogUser encrypted="false">OSLOG</LogUser>
-    <LogPassword encrypted="true"></LogPassword>
+    <Server encrypted="false"><%= @outsystems_platform.database.server %></Server>
+    <Schema encrypted="false"><%= @outsystems_platform.database.database %></Schema>
+
+    <AdminUser encrypted="false"><%= @outsystems_platform.database.admin_user %></AdminUser>
+    <RuntimeUser encrypted="false"><%= @outsystems_platform.database.runtime_user %></RuntimeUser>
+    <LogUser encrypted="false"><%= @outsystems_platform.database.log_user %></LogUser>
+
+    <AdminPassword encrypted="false"><%= @outsystems_platform.database.admin_password %></AdminPassword>
+    <RuntimePassword encrypted="false"><%= @outsystems_platform.database.runtime_password %></RuntimePassword>
+    <LogPassword encrypted="false"><%= @outsystems_platform.database.log_password %></LogPassword>
+
+    <AdvancedConfigurationMode encrypted="false">false</AdvancedConfigurationMode>
     <RuntimeAdvancedSettings encrypted="false"></RuntimeAdvancedSettings>
     <ServicesAdvancedSettings encrypted="false"></ServicesAdvancedSettings>
-    <AdvancedConfigurationMode encrypted="false">false</AdvancedConfigurationMode>
   </PlatformDatabaseConfiguration>
   <SessionDatabaseConfiguration ProviderKey="MySQL">
-    <Server encrypted="false"></Server>
-    <Schema encrypted="false"></Schema>
-    <UsedAuthenticationMode encrypted="false">Database Authentication</UsedAuthenticationMode>
-    <SessionUser encrypted="false">OSSTATE</SessionUser>
-    <SessionPassword encrypted="true"></SessionPassword>
+    <Server encrypted="false"><%= @outsystems_platform.session_database.server %></Server>
+    <Schema encrypted="false"><%= @outsystems_platform.session_database.database %></Schema>
+
+    <SessionUser encrypted="false"><%= @outsystems_platform.session_database.session_user %></SessionUser>
+    <SessionPassword encrypted="false"><%= @outsystems_platform.session_database.session_password %></SessionPassword>
+
     <SessionAdvancedSettings encrypted="false"></SessionAdvancedSettings>
+    <UsedAuthenticationMode encrypted="false"></UsedAuthenticationMode>
     <AdvancedConfigurationMode encrypted="false">false</AdvancedConfigurationMode>
   </SessionDatabaseConfiguration>
   <ServiceConfiguration>
-    <CompilerServerHostname>localhost</CompilerServerHostname>
+    <CompilerServerHostname><%= @outsystems_platform.compiler_hostname %></CompilerServerHostname>
+
     <CompilerServerPort>12000</CompilerServerPort>
     <DeploymentServerPort>12001</DeploymentServerPort>
     <LogQueuePath>.\Private$\OutSystemsLog</LogQueuePath>

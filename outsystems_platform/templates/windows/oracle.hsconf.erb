@@ -1,51 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EnvironmentConfiguration>
   <PlatformDatabaseConfiguration ProviderKey="Oracle">
+
+    <Host encrypted="false"><%= @outsystems_platform.database.server %></Host>
+    <ServiceName encrypted="false"><%= @outsystems_platform.database.service_name %></ServiceName>
+    <Port encrypted="false"><%= @outsystems_platform.database.port %></Port>
+
+    <AdminUser encrypted="false"><%= @outsystems_platform.database.admin_user %></AdminUser>
+    <RuntimeUser encrypted="false"><%= @outsystems_platform.database.runtime_user %></RuntimeUser>
+    <LogUser encrypted="false"><%= @outsystems_platform.database.log_user %></LogUser>
+
+    <AdminPassword encrypted="false"><%= @outsystems_platform.database.admin_password %></AdminPassword>
+    <RuntimePassword encrypted="false"><%= @outsystems_platform.database.runtime_password %></RuntimePassword>
+    <LogPassword encrypted="false"><%= @outsystems_platform.database.log_password %></LogPassword>
+  
+    <AdminTablespace encrypted="false"><%= @outsystems_platform.database.admin_tablespace %></AdminTablespace>
+    <IndexTablespace encrypted="false"><%= @outsystems_platform.database.index_tablespace %></IndexTablespace>
+    <RuntimeTablespace encrypted="false"><%= @outsystems_platform.database.runtime_tablespace %></RuntimeTablespace>
+    <LogTablespace encrypted="false"><%= @outsystems_platform.database.log_tablespace %></LogTablespace>
+
+    <NLS_Territory encrypted="false">AMERICA</NLS_Territory>
+    <NLS_Language encrypted="false"></NLS_Language>
+
+
     <IntrospectionMethod encrypted="false">auto</IntrospectionMethod>
     <CI_AI encrypted="false">true</CI_AI>
     <DateFunction encrypted="false">CURRENT_TIMESTAMP</DateFunction>
-    <DDLLockTimeout encrypted="false">0</DDLLockTimeout>
+    <DDLLockTimeout encrypted="false">90</DDLLockTimeout>
     <NamingType encrypted="false">Service Name</NamingType>
     <TNSName encrypted="false"></TNSName>
-    <Host encrypted="false">localhost</Host>
-    <Port encrypted="false">1521</Port>
-    <ServiceName encrypted="false"></ServiceName>
-    <AdminTablespace encrypted="false">OSSYS</AdminTablespace>
-    <IndexTablespace encrypted="false">OSIDX</IndexTablespace>
-    <RuntimeTablespace encrypted="false">OSUSR</RuntimeTablespace>
-    <LogTablespace encrypted="false">OSLOG</LogTablespace>
-    <NLS_Language encrypted="false"></NLS_Language>
-    <NLS_Territory encrypted="false">AMERICA</NLS_Territory>
-    <AdminUser encrypted="false">OSADMIN</AdminUser>
-    <AdminPassword encrypted="true"></AdminPassword>
-    <RuntimeUser encrypted="false">OSRUNTIME</RuntimeUser>
-    <RuntimePassword encrypted="true"></RuntimePassword>
-    <LogUser encrypted="false">OSLOG</LogUser>
-    <LogPassword encrypted="true"></LogPassword>
     <RuntimeAdvancedSettings encrypted="false">Incr Pool Size=1;</RuntimeAdvancedSettings>
     <ServicesAdvancedSettings encrypted="false">Incr Pool Size=1;</ServicesAdvancedSettings>
     <AdvancedConfigurationMode encrypted="false">false</AdvancedConfigurationMode>
   </PlatformDatabaseConfiguration>
   <SessionDatabaseConfiguration ProviderKey="Oracle">
+
+    <Host encrypted="false"><%= @outsystems_platform.session_database.server %></Host>
+    <ServiceName encrypted="false"><%= @outsystems_platform.session_database.service_name %></ServiceName>
+    <Port encrypted="false"><%= @outsystems_platform.session_database.port %></Port>
+
+    <SessionUser encrypted="false"><%= @outsystems_platform.session_database.session_user %></SessionUser>
+    <SessionPassword encrypted="false"><%= @outsystems_platform.session_database.session_password %></SessionPassword>
+
+    <SessionTablespace encrypted="false"><%= @outsystems_platform.session_database.session_tablespace %></SessionTablespace>
+
+    <NLS_Territory encrypted="false">AMERICA</NLS_Territory>
+    <NLS_Language encrypted="false"></NLS_Language>
+
     <IntrospectionMethod encrypted="false"></IntrospectionMethod>
     <CI_AI encrypted="false">false</CI_AI>
     <DateFunction encrypted="false"></DateFunction>
-    <DDLLockTimeout encrypted="false">0</DDLLockTimeout>
+    <DDLLockTimeout encrypted="false">90</DDLLockTimeout>
     <IdType encrypted="false">Service Name</IdType>
     <TNSName encrypted="false"></TNSName>
-    <Host encrypted="false">localhost</Host>
-    <Port encrypted="false">1521</Port>
-    <ServiceName encrypted="false"></ServiceName>
-    <NLS_Language encrypted="false"></NLS_Language>
-    <NLS_Territory encrypted="false">AMERICA</NLS_Territory>
-    <SessionTablespace encrypted="false">OSSTATE</SessionTablespace>
-    <SessionUser encrypted="false">OSSTATE</SessionUser>
-    <SessionPassword encrypted="true"></SessionPassword>
     <SessionAdvancedSettings encrypted="false">Incr Pool Size=1;</SessionAdvancedSettings>
     <AdvancedConfigurationMode encrypted="false">false</AdvancedConfigurationMode>
   </SessionDatabaseConfiguration>
   <ServiceConfiguration>
-    <CompilerServerHostname>localhost</CompilerServerHostname>
+    <CompilerServerHostname><%= @outsystems_platform.compiler_hostname %></CompilerServerHostname>
+
     <CompilerServerPort>12000</CompilerServerPort>
     <DeploymentServerPort>12001</DeploymentServerPort>
     <LogQueuePath>.\Private$\OutSystemsLog</LogQueuePath>

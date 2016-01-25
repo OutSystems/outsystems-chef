@@ -95,12 +95,12 @@ elsif platform?('windows')
 			action :create
 		end
 
-		remote_file "#{env['WINDIR']}\\system32\\libicudecnumber.dll" do
+		remote_file "#{ENV['WINDIR']}\\system32\\libicudecnumber.dll" do
 			source "#{node['outsystems_platform']['third_party_nonfree_url']}/sap/libicudecnumber.dll"
 			action :create
 		end
 
-		remote_file "#{env['WINDIR']}\\system32\\rscp4n.dll" do
+		remote_file "#{ENV['WINDIR']}\\system32\\rscp4n.dll" do
 			source "#{node['outsystems_platform']['third_party_nonfree_url']}/sap/rscp4n.dll"
 			action :create
 		end

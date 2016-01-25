@@ -61,15 +61,15 @@ if platform?('centos')
 
 elsif platform?('windows')
 
-	windows_package 'OutSystems Development Environment 9.1' do
-		source 'https://outsystemssupport.s3.amazonaws.com/public/chef/DevelopmentEnvironment.exe'
-		package_name 'OutSystems Development Environment 9.1'
+	windows_package "OutSystems Development Environment #{node['outsystems_platform']['major_version']}" do
+		source "#{node['outsystems_platform']['outsystems_platform_url']}/#{node['outsystems_platform']['major_version']}/#{node['outsystems_platform']['version']}/DevelopmentEnvironment.exe"
+		package_name "OutSystems Development Environment #{node['outsystems_platform']['major_version']}"
 		options '/S'
 		action :install
 	end
 
 	windows_package 'OutSystems Platform Server' do
-		source 'https://outsystemssupport.s3.amazonaws.com/public/chef/PlatformServer.exe'
+		source "#{node['outsystems_platform']['outsystems_platform_url']}/#{node['outsystems_platform']['major_version']}/#{node['outsystems_platform']['version']}/PlatformServer.exe"
 		package_name 'OutSystems Platform Server'
 		installer_type :custom
 		options '/S'
@@ -140,7 +140,7 @@ elsif platform?('windows')
 	execute 'iisreset'
 
 	execute 'install system components' do 
-		command "\"C:\\Program Files\\Common Files\\OutSystems\\9.1\\OSPTool.exe\" \"C:\\Program Files\\OutSystems\\Platform Server\\System_Components.osp\" localhost admin admin"
+		command "\"C:\\Program Files\\Common Files\\OutSystems\\#{node['outsystems_platform']['major_version']}\\OSPTool.exe\" \"C:\\Program Files\\OutSystems\\Platform Server\\System_Components.osp\" localhost admin admin"
 	end
 
 end

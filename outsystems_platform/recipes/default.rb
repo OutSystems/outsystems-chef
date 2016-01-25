@@ -83,10 +83,33 @@ elsif platform?('windows')
 		})
 	end
 
+	if node['outsystems_platform']['install_sap']
+
+		remote_file 'C:\Program Files\OutSystems\Platform Server\thirdparty\lib\sapnco.dll' do
+			source "#{node['outsystems_platform']['third_party_nonfree_url']}/sap/sapnco.dll"
+			action :create
+		end
+
+		remote_file 'C:\Program Files\OutSystems\Platform Server\thirdparty\lib\sapnco_utils.dll' do
+			source "#{node['outsystems_platform']['third_party_nonfree_url']}/sap/sapnco_utils.dll"
+			action :create
+		end
+
+		remote_file "#{env['WINDIR']}\\system32\\libicudecnumber.dll" do
+			source "#{node['outsystems_platform']['third_party_nonfree_url']}/sap/libicudecnumber.dll"
+			action :create
+		end
+
+		remote_file "#{env['WINDIR']}\\system32\\rscp4n.dll" do
+			source "#{node['outsystems_platform']['third_party_nonfree_url']}/sap/rscp4n.dll"
+			action :create
+		end
+
+	end
+
 	execute 'run configuration tool' do 
 		command "\"C:\\Program Files\\OutSystems\\Platform Server\\ConfigurationTool.exe\" /Silent /UpgradeInstall /SCInstall /RebuildSession #{node['outsystems_platform']['session_database']['session_user']} #{node['outsystems_platform']['session_database']['session_password']}"
 	end
-
 
 	iis_pool 'OutSystemsApplications' do
 		rapid_fail_protection false

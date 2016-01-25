@@ -14,19 +14,19 @@ if platform?('centos')
 	end
 
 	remote_file '/tmp/apache-ant-1.9.6-bin.zip' do 
-		source 'https://outsystemssupport.s3.amazonaws.com/public/chef/apache-ant-1.9.6-bin.zip'
+		source "#{node['outsystems_platform']['third_party_free_url']}/apache-ant-1.9.6-bin.zip"
 		action :create
 		not_if { ::File.directory?('/opt/apache-ant-1.9.6/')}
 	end
 
 	remote_file '/tmp/wildfly-8.2.0.Final.zip' do
-		source 'https://outsystemssupport.s3.amazonaws.com/public/chef/wildfly-8.2.0.Final.zip'
+		source "#{node['outsystems_platform']['third_party_free_url']}/wildfly-8.2.0.Final.zip"
 		action :create
 		not_if { ::File.directory?('/opt/wildfly-8.2.0.Final/') } 
 	end
 
 	remote_file '/tmp/jdk-8u72-linux-x64.rpm' do 
-		source 'https://outsystemssupport.s3.amazonaws.com/public/chef/jdk-8u72-linux-x64.rpm'
+		source "#{node['outsystems_platform']['third_party_nonfree_url']}/java/jdk-8u72-linux-x64.rpm"
 		action :create
 		not_if "rpm -q jdk1.8.0_72"
 	end

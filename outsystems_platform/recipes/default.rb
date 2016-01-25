@@ -13,14 +13,14 @@ if platform?('centos')
 	template '/etc/yum.repos.d/outsystems.repo' do
 		source 'outsystems.repo.erb'
 		variables({
-			:major_version => '9.1'
+			:major_version => node['outsystems_platform']['major_version']
 		})
 	end
 
 	package [ 'outsystems-agileplatform-wildfly8', 'outsystems-agileplatform', 'outsystems-agileplatform-libs' ]
 
 	remote_file '/opt/outsystems/platform/jce_policy-8.zip' do
-		source 'https://outsystemssupport.s3.amazonaws.com/public/chef/jce_policy-8.zip'
+		source "#{node['outsystems_platform']['third_party_nonfree_url']}/java/jce_policy-8.zip"
 		action :create
 		checksum 'f3020a3922efd6626c2fff45695d527f34a8020e938a49292561f18ad1320b59'
 	end
@@ -30,6 +30,20 @@ if platform?('centos')
 		variables({
 			:outsystems_platform => node['outsystems_platform']
 		})
+	end
+
+	if node['outsystems_platform']['install_sap']
+
+		remote_file '/opt/outsystems/platform/thirdparty/lib/sapjco3.jar' do
+			source "#{node['outsystems_platform']['third_party_nonfree_url']}/sap/sapjco3.jar"
+			action :create
+		end
+
+		remote_file '/opt/outsystems/platform/thirdparty/lib/libsapjco3.so' do
+			source "#{node['outsystems_platform']['third_party_nonfree_url']}/sap/libsapjco3.so"
+			action :create
+		end
+
 	end
 
 	bash 'run configuration tool' do

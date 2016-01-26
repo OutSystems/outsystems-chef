@@ -114,6 +114,7 @@ elsif platform?('windows')
 	iis_pool 'OutSystemsApplications' do
 		rapid_fail_protection false
 		private_mem   (node['memory']['total'][0..-3].to_i * 0.7).to_i
+		idle_timeout "00:00:00"
 		action :config
 	end
 
@@ -121,6 +122,7 @@ elsif platform?('windows')
 		runtime_version "4.0"
 		pipeline_mode :Classic
 		recycle_after_time "00:00:00"
+		idle_timeout "00:00:00"
 		rapid_fail_protection false
 		action :add
 	end

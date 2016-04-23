@@ -16,9 +16,16 @@ if platform?('centos')
 			:major_version => node['outsystems_platform']['major_version']
 		})
 	end
-
-	package [ 'outsystems-agileplatform-wildfly8', 'outsystems-agileplatform', 'outsystems-agileplatform-libs' ]
-
+	
+	package_list = [ 'outsystems-agileplatform-wildfly8', 'outsystems-agileplatform', 'outsystems-agileplatform-libs' ]
+	
+	if node['outsystems_platform']['version'] != 'latest'
+		# add version to package list
+		package_list = package_list.map { |package| package + ' = ' + node['outsystems_platform']['version'] }
+	end
+	
+	package package_list
+	
 	remote_file '/opt/outsystems/platform/jce_policy-8.zip' do
 		source "#{node['outsystems_platform']['third_party_nonfree_url']}/java/jce_policy-8.zip"
 		action :create
